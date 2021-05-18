@@ -23,24 +23,33 @@
         'visitingPoint' => '40',
       ],
       [
-        'teamHome' => 'Inter',
+        'teamHome' => 'Milano',
         'teamVisiting' => 'Roma',
         'homePoint' => '50',
         'visitingPoint' => '70',
       ],
       [
         'teamHome' => 'Napoli',
-        'teamVisiting' => 'Genoa',
+        'teamVisiting' => 'Genova',
         'homePoint' => '50',
         'visitingPoint' => '80',
       ],
     ];
-
-    // loop
-    for($i = 0; $i < count($matches); $i++) {
-        var_dump($matches[$i]);
-    }
+    var_dump($matches);
+     
     ?>
+    <h2>Risultato Partite</h2> 
+    <!--apri qua { e chiudi giu-->
+    <?php for($i = 0; $i < count($matches); $i++) { ?>
 
+        <ul>
+             <li>
+                 <p><?php echo( $matches[$i]['teamHome'] .' - ' .$matches[$i]['teamVisiting'] .' | ' .$matches[$i]['homePoint'] .' - ' .$matches[$i]['visitingPoint']);
+                  ?>                
+                </p>
+             </li>
+        </ul>  
+    
+    <?php } ?>
 </body>
 </html>
