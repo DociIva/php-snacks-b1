@@ -71,10 +71,20 @@
     $age = $_GET['age'];
     var_dump($name, $mail, $age);
 
-    // dec empty oer il controllo  | strlen() per la lunghezza della della stringa
-    if(empty($name) || (strlen($name) < 3) ) {
-        echo 'Non puoi eccedere, il nome deve essere inserito e deve essere lungo almeno 3 caratteri.';
-    }
+    // oer il controllo  | strlen() per la lunghezza della della stringa
+     if( strlen($name) <= 3) {
+        echo 'Acesso Negato';
+     }
+     elseif( empty($mail) || strpos($mail, '@') === false || strpos($mail, '.') === false) {
+       echo 'Accesso Negato';
+     }
+     elseif( is_numeric($age) === false) {
+       echo 'Accessp Negato';
+     }
+     else {
+       echo 'Acesso Consentito';
+     }
+     
     ?>
 </body>
 </html>
