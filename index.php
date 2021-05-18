@@ -35,7 +35,7 @@
         'visitingPoint' => '80',
       ],
     ];
-    var_dump($matches);
+    // var_dump($matches);
      
     ?>
     <h2>Risultato Partite</h2> 
@@ -44,12 +44,37 @@
 
         <ul>
              <li>
-                 <p><?php echo( $matches[$i]['teamHome'] .' - ' .$matches[$i]['teamVisiting'] .' | ' .$matches[$i]['homePoint'] .' - ' .$matches[$i]['visitingPoint']);
+                 <p><?php echo $matches[$i]['teamHome'] .' - ' .$matches[$i]['teamVisiting'] .' | ' .$matches[$i]['homePoint'] .' - ' .$matches[$i]['visitingPoint'];
                   ?>                
                 </p>
              </li>
         </ul>  
     
     <?php } ?>
+
+
+    <h2>Snack 2</h2>
+    <?php /*
+    PHP Snack 2:
+    Passare come parametri GET (query string) name, mail e age
+    verificare (cercando i metodi che non
+    conosciamo nella documentazione) che:
+    1. name sia più lungo di 3 caratteri
+    2. che mail contenga un punto e una chiocciola
+    3. che age sia un numero.
+    Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
+    */ 
+    $name = $_GET['name'];
+
+    $mail = $_GET['mail'];
+   
+    $age = $_GET['age'];
+    var_dump($name, $mail, $age);
+
+    // dec empty oer il controllo  | strlen() per la lunghezza della della stringa
+    if(empty($name) || (strlen($name) < 3) ) {
+        echo 'Non puoi eccedere, il nome deve essere inserito e deve essere lungo almeno 3 caratteri.';
+    }
+    ?>
 </body>
 </html>
