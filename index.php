@@ -86,5 +86,135 @@
      }
      
     ?>
+
+<?php 
+/*SNACK 3
+Creare un array di array.
+Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007
+e come valore un array di post associati a quella data.
+Stampare ogni data con i relativi post. 
+*/
+?>
+<?php
+
+$posts = [
+
+    '10/01/2019' => [
+        [
+            'title' => 'Post 1',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 1'
+        ],
+        [
+            'title' => 'Post 2',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 2'
+        ],
+    ],
+    '10/02/2019' => [
+        [
+            'title' => 'Post 3',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 3'
+        ]
+    ],
+    '15/05/2019' => [
+        [
+            'title' => 'Post 4',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 4'
+        ],
+        [
+            'title' => 'Post 5',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 5'
+        ],
+        [
+            'title' => 'Post 6',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 6'
+        ]
+    ],
+]; 
+
+?>
+<?php foreach($posts as $key => $post) { 
+     // var_dump($post); ?>
+
+      <h2>Post del <?php echo $key; ?></h2>
+      <?php foreach($post as $value) { ?>
+         <h3><?php  echo $value['title']; ?></h3>
+         <h4><?php echo $value['author']; ?></h4>
+         <h4><?php echo $value['text']; ?></h4>
+      <?php } ?>
+      
+
+
+<?php }  ?> 
+
+
+<?php 
+ /*Snack 4
+Creare un array contenente qualche alunno di un’ipotetica classe.
+Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici.
+Stampare Nome, Cognome e la media dei voti di ogni alunno.
+ */
+
+$classe =  [
+  
+    [ 
+       'nome' => 'Luca',
+       'cognome' => 'Pippo',
+        'voti' => [ 5, 4, 6 , 3],
+
+    ],
+  
+    [
+      'nome' => 'Marco',
+      'cognome' => 'Pluto',
+       'voti' => [5, 4, 6 , 3],
+
+    ],
+
+];
+?>
+<ul>
+  <?php foreach($classe as $alunni) {
+  // var_dump($alunni);
+  $average = array_sum($alunni['voti']) / count($alunni['voti']); ?>
+  <li>
+     <?php echo $alunni['nome'] . ' ' .  $alunni['cognomi']; ?> 
+     <?php echo number_format($average, 1); ?>
+
+  </li>
+
+<?php } ?>
+</ul> 
+
+<?php 
+/**Prendere un testo abbastanza lungo, contenente diverse frasi.
+  Suddividere il testo in tanti paragrafi <p>.
+  Ad ogni punto (.) corrisponde un nuovo paragrafo.
+ */
+ $text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+  nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
+  Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+  In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.';
+
+  $paragrafi = explode('.', $text);
+   //var_dump($paragrafi);
+ 
+   //loop con foreach 
+  foreach($paragrafi as $paragrafo) {
+   
+    if(! empty($paragrafo)) { ?>
+      <p><?php echo $paragrafo; ?> </p>
+      <?php }
+  } ?>
+
+
+
+
 </body>
 </html>
