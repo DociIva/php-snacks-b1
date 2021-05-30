@@ -69,7 +69,7 @@
     $mail = $_GET['mail'];
    
     $age = $_GET['age'];
-    var_dump($name, $mail, $age);
+   // var_dump($name, $mail, $age);
 
     // oer il controllo  | strlen() per la lunghezza della della stringa
      if( strlen($name) <= 3) {
@@ -183,7 +183,7 @@ $classe =  [
   // var_dump($alunni);
   $average = array_sum($alunni['voti']) / count($alunni['voti']); ?>
   <li>
-     <?php echo $alunni['nome'] . ' ' .  $alunni['cognomi']; ?> 
+     <?php echo $alunni['nome'] . ' ' .  $alunni['cognome']; ?> 
      <?php echo number_format($average, 1); ?>
 
   </li>
